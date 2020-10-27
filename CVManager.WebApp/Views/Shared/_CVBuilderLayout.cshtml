@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CVManager.WebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/grapesjs/css/grapes.min.css" />
+    <link rel="stylesheet" href="~/dist/cvbuilder.css" />
+    <link href="~/css/icons.css" rel="stylesheet" />
+</head>
+<body>
+    <partial name="./_Header.cshtml" />
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/grapesjs/grapes.min.js"></script>
+    <script src="~/lib/ckeditor_4.14.0/ckeditor.js"></script>
+    <script src="~/lib/grapesjs/plugin/grapesjs-plugin-ckeditor-master/dist/grapesjs-plugin-ckeditor.min.js"></script>
+    <script src="~/dist/cvbuilder.js"></script>
+</body>
+</html>

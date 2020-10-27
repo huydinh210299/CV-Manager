@@ -1,0 +1,18 @@
+html,
+body,
+#wrapper {
+  min-height: 100%; }
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: visible !important; }
+
+#wrapper {
+  overflow: auto;
+  overflow-x: hidden; }
+
+[data-gjs-type].gjs-selected {
+  outline: 1px solid rgba(0, 0, 0, 0.9) !important;
+  outline-offset: -1px !important;
+  cursor: default !important; }

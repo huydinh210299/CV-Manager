@@ -1,0 +1,94 @@
+.cv-builder-suggestion{
+    .cv-builder-switch-menu{
+        width: 100%;
+        height: 70px;
+        border-bottom: thin solid #ccc;
+        display: flex;
+        .cv-builder-switch-menu-item{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer;
+            opacity: 0.5;
+            .switch-menu-title{
+                text-align: center;
+                font-size: 14px;
+                pointer-events: none;
+            }
+
+            .switch-menu-icon{
+                flex: 1;
+                background-size: 26px 26px;
+                background-position: center;
+                pointer-events: none;
+            }
+        }
+
+        .cv-builder-switch-menu-item:not(:last-child){
+            border-right: thin solid #ccc;
+        }
+
+        .cv-builder-switch-menu-item.active{
+            opacity: 1;
+        }
+    }
+
+    .cv-builder-suggestion-content{
+        height: calc(100% - 70px);
+        width: 100%;
+
+        .template-content, .suggest-content{
+            height: 100%;
+            width: 100%;
+        }
+        
+        //Gợi ý
+        .suggest-content{
+            display: none;
+            margin-top: 10px;
+
+            .suggestion-title-wrap{
+                display: flex;
+                
+                .suggestion-icon{
+                    height: auto;
+                    width: 22px;
+                    background-size: 22px 22px;
+                    background-position: 0px 3px;
+                    margin-right: 8px;
+                    background-repeat: no-repeat;
+                }
+            }
+
+            .suggestion-title-wrap,.suggestion-body{
+                border-bottom: thin solid #ccc;
+                padding-bottom: 8px;
+            }
+            .suggestion-body{
+                font-size: 14px;
+            }
+            .suggestion-footer{
+                font-size: 14px;
+                padding-top: 8px;
+            }
+        }
+
+        //style manager
+
+        .style-content{
+            display: none;
+            .advance-style{
+                display: none;
+
+                .progress-value{
+                    width: 200px;
+                    height: 30px;
+                    border-radius: 5px;
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+
+}

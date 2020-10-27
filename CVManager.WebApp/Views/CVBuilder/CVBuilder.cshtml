@@ -1,0 +1,76 @@
+﻿@{
+    //ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "CVBuilder";
+    Layout = "_CVBuilderLayout";
+}
+<div class="cv-builder-wrapper">
+    <div class="cv-builder-toolbar">
+        <div class="toolbar-item">
+            <div class="toolbar-title">Thêm mục</div>
+            <div class="toolbar-icon icon-add"></div>
+        </div>
+        <div class="toolbar-item">
+            <div class="toolbar-title">Lưu CV</div>
+            <div class="toolbar-icon icon-save"></div>
+        </div>
+    </div>
+    <div class="cv-builder-container">
+        <div class="cv-builder-layout">
+            <div id="cv-tittle">My CV</div>
+            <div id="gjs" name="gjs">
+                
+            </div>
+        </div>
+        <div class="cv-builder-suggestion">
+            <div class="cv-builder-switch-menu">
+                <div class="cv-builder-switch-menu-item active" tab-name="template">
+                    <div class="switch-menu-title">Mẫu CV</div>
+                    <div class="switch-menu-icon icon-template"></div>
+                </div>
+                <div class="cv-builder-switch-menu-item" tab-name="suggest">
+                    <div class="switch-menu-title">Gợi ý</div>
+                    <div class="switch-menu-icon icon-suggest"></div>
+                </div>
+                <div class="cv-builder-switch-menu-item" tab-name="style">
+                    <div class="switch-menu-title">Chỉnh sửa</div>
+                    <div class="switch-menu-icon icon-edit"></div>
+                </div>
+            </div>
+            <div class="cv-builder-suggestion-content">
+                <div class="template-content" id="blocks"></div>
+                <div class="suggest-content">
+                    <div class="suggestion-title-wrap">
+                        <div class="suggestion-icon"></div>
+                        <h4 class="suggestion-title">Hướng dẫn</h4>
+                    </div>
+                    <div class="suggestion-body" style="padding : 10px 0">
+                        <h4>Lưu ý: Kéo mẫu CV cần dùng vào khung!</h4> <br/>
+                        1. Điền đầy đủ các thông tin hiển thị trong CV<br/>
+                        2. Bấm nút Lưu CV<br/>
+                        3. Xem & Tải CV về máy<br/>
+                        Một số lưu ý chung:<br/>
+                        &nbsp;•Sắp xếp thời gian theo thứ tự mới -> cũ.<br/>
+                        &nbsp;•Ưu tiên những gì quan trọng, có liên quan đến vị trí ứng tuyển lên đầu.<br/>
+                        &nbsp;•Ngày tháng nên dùng: 01/2016, 01-2016 hoặc Jan 2016
+                    </div>
+                    <div class="suggestion-footer">
+                        Mọi chi tiết vui lòng liên hệ<br/>
+                        Email: dinhlun99hy@gmail.com
+                    </div>
+                </div>
+                <div class="style-content">
+                    <div class="progress-style advance-style">
+                        <div class="advance-style-label">Progress</div>
+                        <select name="progress-value" class="progress-value">
+                            <option value="20">1/5</option>
+                            <option value="40">2/5</option>
+                            <option value="60">3/5</option>
+                            <option value="80">4/5</option>
+                            <option value="100">5/5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

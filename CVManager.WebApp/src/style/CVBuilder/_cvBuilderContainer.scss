@@ -1,0 +1,44 @@
+.cv-builder-wrapper{
+    width: 100%;
+    background-color: #f6f6f6;
+    .cv-builder-container{
+        display: flex;
+        min-height: 300px;
+        .cv-builder-layout{
+            flex: 1;
+            height: auto;
+            #cv-tittle{
+                padding: 5px 0;
+                margin: 0 auto;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 8px;
+                font-size: 20px;
+            }
+
+            #gjs{
+                width: 210mm !important;
+                margin-bottom: 20px !important;
+                height: auto;
+                min-height: 200px;
+                margin: auto;
+                border: 1px solid #444;
+            }
+        }
+
+        .cv-builder-suggestion{
+            width: 375px;
+            min-width: 200px;
+            height: auto;
+            border-left: thin solid #ccc;
+            padding: 8px;
+        }
+    }
+}
+
+/*Ghi đè layout của grapesjs*/
+.gjs-cv-canvas{
+    height: 100% !important;
+    width: 100% !important;
+    top: 0 !important;
+}

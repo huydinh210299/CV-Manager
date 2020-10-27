@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CVManager.WebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/cvmanager.css" />
+</head>
+<body>
+    <partial name="./_Header.cshtml" />
+    @RenderBody()
+    <partial name="./_Footer.cshtml" />
+    @RenderSection("Scripts", required: false)
+
+    <script src="~/dist/cvmanager.js"></script>
+</body>
+</html>

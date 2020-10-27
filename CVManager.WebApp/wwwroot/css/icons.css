@@ -1,0 +1,25 @@
+﻿.icon-save {
+    background: url("/content/icon/icon-save.svg") no-repeat;
+}
+
+.icon-add {
+    background: url("/content/icon/icon-add.svg") no-repeat;
+}
+
+.icon-suggest{
+    background: url("/content/icon/icon-suggest.svg") no-repeat;
+}
+
+.icon-template{
+    background: url("/content/icon/icon-template.svg") no-repeat;
+}
+
+.icon-edit{
+    background: url("/content/icon/icon-edit.svg") no-repeat;
+}
+
+.suggestion-icon{
+    background-image: url("/content/icon/icon-info.svg");
+    /* background-size: 22px 22px;
+    background-position: 0px 3px; */
+}

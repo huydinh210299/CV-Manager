@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "grapesjs@0.16.22",
+      "destination": "wwwroot/lib/grapesjs/"
+    }
+  ]
+}

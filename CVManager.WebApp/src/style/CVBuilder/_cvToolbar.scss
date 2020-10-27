@@ -1,0 +1,32 @@
+.cv-builder-wrapper{
+    .cv-builder-toolbar{
+        height: 75px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px 0 #ccc;
+        display: flex;
+
+        .toolbar-item{
+            width: 120px;
+            height: 100%;
+            border-left: thin solid #ccc;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+
+            .toolbar-title{
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .toolbar-icon{
+                flex: 1;
+                background-size: 26px 26px;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        .toolbar-item:last-child{
+            border-right: thin solid #ccc;
+        }
+    }
+}
