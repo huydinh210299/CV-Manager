@@ -14,8 +14,6 @@ E:\20201\projectIII\CVManager\CVManager.WebApp\bin\Debug\netcoreapp3.1\CVManager
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.csprojAssemblyReference.cache
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.AssemblyInfoInputs.cache
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.AssemblyInfo.cs
-E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.csproj.CoreCompileInputs.cache
-E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.MvcApplicationPartsAssemblyInfo.cache
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.RazorAssemblyInfo.cache
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.RazorAssemblyInfo.cs
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.TagHelpers.input.cache
@@ -42,3 +40,5 @@ E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Vie
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Header.cshtml.g.cs
 E:\20201\projectIII\CVManager\CVManager.WebApp\bin\Debug\netcoreapp3.1\libman.json
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.csproj.CoreCompileInputs.cache
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager.WebApp.MvcApplicationPartsAssemblyInfo.cache
