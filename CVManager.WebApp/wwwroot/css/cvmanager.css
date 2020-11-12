@@ -1,0 +1,18 @@
+﻿body {
+    background-color: #f0f0f0;
+}
+
+.cv-image{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+}
+
+.cv-content{
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.action .btn {
+    margin: 0 8px;
+}

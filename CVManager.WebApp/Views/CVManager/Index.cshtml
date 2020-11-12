@@ -1,0 +1,40 @@
+﻿@model List<CVManagerModal>
+@{
+    ViewData["Title"] = "cv manager";
+    Layout = "_CVHomeLayout";
+}
+<link rel="stylesheet" href="/css/cvmanager.css" />
+<div class="container mt-5 mb-5">
+
+    <div class="row title d-flex justify-content-between mt-3 mb-5">
+        <div style="margin: auto 0; font-size: 150%;">Danh sách CV</div>
+        <button class="btn btn-success">Tạo mới CV</button>
+    </div>
+    @foreach (var cv in Model)
+    {
+        <div class="row mb-5 cv-content">
+            <div class="col-md-3 d-flex" style="height: 200px;">
+                <img src="@cv.CVImage" class="cv-image"/>
+            </div>
+            <div class="col-md-9 d-flex flex-column justify-content-between" style="height: 200px;">
+                <div class="cv-title d-flex justify-content-between">
+                    <div class="cv-name d-flex" style="font-size : 120%; font-weight: bold;">
+                        @cv.CVName @if (cv.isChoosen == true)
+                                        {
+                                            <p class="mr-1">(CV chính)</p>
+                                        }
+                    </div>
+                    <div class="cv-name">@cv.CreateDate</div>
+                </div>
+                <div class="action d-flex justify-content-end"\ >
+                    <button class="btn btn-primary btn-set-mainCV" cv-id="@cv.CVID">Đặt CV chính</button>
+                    <a href="/cvmanager/detail/@cv.CVID" class="btn btn-primary">Xem</a>
+                    <a href="/cvmanager/edit/@cv.CVID" class="btn btn-primary">Sửa</a>
+                    <button class="btn btn-danger" cv-id="@cv.CVID">Xóa</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/js/cvmanager.js"></script>

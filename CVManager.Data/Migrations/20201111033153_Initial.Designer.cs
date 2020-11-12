@@ -3,14 +3,13 @@ using System;
 using CVManager.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CVManager.Data.Migrations
 {
     [DbContext(typeof(CVManagerDBContext))]
-    [Migration("20201029084000_Initial")]
+    [Migration("20201111033153_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,37 +17,36 @@ namespace CVManager.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.9")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("CVManager.Data.Entities.Acount", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ObjectId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("66c69b69-04b1-4a2a-bca6-3282a24cac46"));
 
                     b.Property<string>("ObjectRole")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4")
                         .HasDefaultValue("ROLE_USER");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 211, DateTimeKind.Local).AddTicks(4456));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -59,35 +57,35 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("4509c5de-4f2b-43e9-b956-c8da69ed6b9b"));
 
                     b.Property<string>("Css")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("CvName")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Html")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("Is_choosen")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
@@ -96,16 +94,18 @@ namespace CVManager.Data.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid?>("UserID")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 215, DateTimeKind.Local).AddTicks(7153));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -118,28 +118,31 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("74c963d4-5502-4f94-a767-9115fcdb433c"));
 
                     b.Property<Guid?>("EnterpriseID")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<bool>("Result")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 220, DateTimeKind.Local).AddTicks(1081));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -154,23 +157,26 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("93360fbf-0540-480e-8078-a61c8b2969f8"));
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid>("ID_Contact")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 221, DateTimeKind.Local).AddTicks(6712));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -184,37 +190,46 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("d1a079d2-3ac9-4bb2-a078-6ce937c9a68a"));
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("Gender")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<Guid>("ID_Acount")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Skype")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 194, DateTimeKind.Local).AddTicks(7833));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ID_Acount")
+                        .IsUnique();
 
                     b.ToTable("Enterprise");
                 });
@@ -223,44 +238,47 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("625e6778-dbd5-4a9f-890d-751c16e85540"));
 
                     b.Property<string>("Area")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Company_Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid>("ID_Enterprise")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Scale")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Tax_Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Website")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 209, DateTimeKind.Local).AddTicks(7686));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -274,33 +292,34 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("32b5bb8a-f082-44ba-885b-77a69440afa4"));
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
                     b.Property<string>("Benefit")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Email_Reciever")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid?>("EnterpriseID")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("ExactAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("Experience")
                         .HasColumnType("int");
@@ -310,48 +329,50 @@ namespace CVManager.Data.Migrations
 
                     b.Property<string>("Phone_Reciever")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Reciever")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Require")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Salary")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Skill")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("Status")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("Submit_Deadline")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 218, DateTimeKind.Local).AddTicks(6573));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
@@ -364,39 +385,48 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("char(36)")
+                        .HasDefaultValue(new Guid("e1c4c1be-eafe-478e-a952-5f12f54f170c"));
 
                     b.Property<string>("Area")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<Guid>("ID_Acount")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("School")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("Status")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasDefaultValue(true);
 
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("createDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 185, DateTimeKind.Local).AddTicks(8493));
 
-                    b.Property<DateTime>("modifyDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("modifyDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ID_Acount")
+                        .IsUnique();
 
                     b.ToTable("User");
                 });
@@ -428,6 +458,15 @@ namespace CVManager.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CVManager.Data.Entities.Enterprise", b =>
+                {
+                    b.HasOne("CVManager.Data.Entities.Acount", "Acount")
+                        .WithOne("Enterprise")
+                        .HasForeignKey("CVManager.Data.Entities.Enterprise", "ID_Acount")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CVManager.Data.Entities.EnterpriseInfo", b =>
                 {
                     b.HasOne("CVManager.Data.Entities.Enterprise", "Enterprise")
@@ -442,6 +481,15 @@ namespace CVManager.Data.Migrations
                     b.HasOne("CVManager.Data.Entities.Enterprise", "Enterprise")
                         .WithMany("Posts")
                         .HasForeignKey("EnterpriseID");
+                });
+
+            modelBuilder.Entity("CVManager.Data.Entities.User", b =>
+                {
+                    b.HasOne("CVManager.Data.Entities.Acount", "Acount")
+                        .WithOne("User")
+                        .HasForeignKey("CVManager.Data.Entities.User", "ID_Acount")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

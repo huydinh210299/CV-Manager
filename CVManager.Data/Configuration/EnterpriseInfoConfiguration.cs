@@ -13,6 +13,7 @@ namespace CVManager.Data.Configuration
         {
             builder.ToTable("Enterprise_Info");
             builder.HasKey(i => i.ID);
+            builder.Property(i => i.ID).HasDefaultValue(Guid.NewGuid());
             builder.Property(i => i.Company_Name).IsRequired();
             builder.Property(i => i.Tax_Code).IsRequired();
             builder.Property(i => i.Area).IsRequired();
@@ -20,6 +21,7 @@ namespace CVManager.Data.Configuration
             builder.Property(i => i.Email).IsRequired();
             builder.Property(i => i.Website).IsRequired();
             builder.Property(i => i.Scale).IsRequired();
+            builder.Property(i => i.createDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

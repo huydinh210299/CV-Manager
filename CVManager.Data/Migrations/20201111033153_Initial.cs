@@ -11,13 +11,12 @@ namespace CVManager.Data.Migrations
                 name: "Acount",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("66c69b69-04b1-4a2a-bca6-3282a24cac46")),
                     Username = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
-                    ObjectId = table.Column<Guid>(nullable: false),
                     ObjectRole = table.Column<string>(nullable: false, defaultValue: "ROLE_USER"),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false)
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 211, DateTimeKind.Local).AddTicks(4456)),
+                    modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,45 +27,59 @@ namespace CVManager.Data.Migrations
                 name: "Enterprise",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("d1a079d2-3ac9-4bb2-a078-6ce937c9a68a")),
                     Name = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: false),
                     Gender = table.Column<bool>(nullable: false),
                     Skype = table.Column<string>(nullable: true),
                     Position = table.Column<string>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false)
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 194, DateTimeKind.Local).AddTicks(7833)),
+                    modifyDate = table.Column<DateTime>(nullable: true),
+                    ID_Acount = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Enterprise", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Enterprise_Acount_ID_Acount",
+                        column: x => x.ID_Acount,
+                        principalTable: "Acount",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("e1c4c1be-eafe-478e-a952-5f12f54f170c")),
                     Name = table.Column<string>(nullable: false),
                     School = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Area = table.Column<string>(nullable: true),
                     Status = table.Column<bool>(nullable: false, defaultValue: true),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false)
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 185, DateTimeKind.Local).AddTicks(8493)),
+                    modifyDate = table.Column<DateTime>(nullable: true),
+                    ID_Acount = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_User_Acount_ID_Acount",
+                        column: x => x.ID_Acount,
+                        principalTable: "Acount",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Enterprise_Info",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("625e6778-dbd5-4a9f-890d-751c16e85540")),
                     Company_Name = table.Column<string>(nullable: false),
                     Tax_Code = table.Column<string>(nullable: false),
                     Area = table.Column<string>(nullable: false),
@@ -75,8 +88,8 @@ namespace CVManager.Data.Migrations
                     Website = table.Column<string>(nullable: false),
                     Scale = table.Column<string>(nullable: false),
                     ID_Enterprise = table.Column<Guid>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false)
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 209, DateTimeKind.Local).AddTicks(7686)),
+                    modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,7 +106,7 @@ namespace CVManager.Data.Migrations
                 name: "Post",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("32b5bb8a-f082-44ba-885b-77a69440afa4")),
                     Title = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: false),
                     ExactAddress = table.Column<string>(nullable: false),
@@ -112,8 +125,8 @@ namespace CVManager.Data.Migrations
                     Benefit = table.Column<string>(nullable: false),
                     Skill = table.Column<string>(nullable: false),
                     Status = table.Column<bool>(nullable: false, defaultValue: true),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false),
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 218, DateTimeKind.Local).AddTicks(6573)),
+                    modifyDate = table.Column<DateTime>(nullable: true),
                     EnterpriseID = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
@@ -131,12 +144,12 @@ namespace CVManager.Data.Migrations
                 name: "Contact",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("74c963d4-5502-4f94-a767-9115fcdb433c")),
                     Status = table.Column<bool>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Result = table.Column<bool>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false),
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 220, DateTimeKind.Local).AddTicks(1081)),
+                    modifyDate = table.Column<DateTime>(nullable: true),
                     UserID = table.Column<Guid>(nullable: true),
                     EnterpriseID = table.Column<Guid>(nullable: true)
                 },
@@ -161,18 +174,18 @@ namespace CVManager.Data.Migrations
                 name: "CV",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("4509c5de-4f2b-43e9-b956-c8da69ed6b9b")),
+                    CvName = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Phone = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
                     Html = table.Column<string>(nullable: false),
                     Css = table.Column<string>(nullable: false),
                     Type = table.Column<string>(nullable: false),
-                    Path = table.Column<string>(nullable: true),
                     Status = table.Column<int>(nullable: false, defaultValue: 1),
-                    Is_choosen = table.Column<bool>(nullable: false, defaultValue: true),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false),
+                    Is_choosen = table.Column<bool>(nullable: false, defaultValue: false),
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 215, DateTimeKind.Local).AddTicks(7153)),
+                    modifyDate = table.Column<DateTime>(nullable: true),
                     UserID = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
@@ -190,12 +203,12 @@ namespace CVManager.Data.Migrations
                 name: "Contact_Info",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("93360fbf-0540-480e-8078-a61c8b2969f8")),
                     Time = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(nullable: false),
                     ID_Contact = table.Column<Guid>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: false),
-                    modifyDate = table.Column<DateTime>(nullable: false)
+                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 221, DateTimeKind.Local).AddTicks(6712)),
+                    modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -230,6 +243,12 @@ namespace CVManager.Data.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Enterprise_ID_Acount",
+                table: "Enterprise",
+                column: "ID_Acount",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Enterprise_Info_ID_Enterprise",
                 table: "Enterprise_Info",
                 column: "ID_Enterprise",
@@ -239,13 +258,16 @@ namespace CVManager.Data.Migrations
                 name: "IX_Post_EnterpriseID",
                 table: "Post",
                 column: "EnterpriseID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_ID_Acount",
+                table: "User",
+                column: "ID_Acount",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Acount");
-
             migrationBuilder.DropTable(
                 name: "Contact_Info");
 
@@ -266,6 +288,9 @@ namespace CVManager.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Acount");
         }
     }
 }

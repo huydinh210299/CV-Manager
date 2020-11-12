@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "_CVHomeLayout";
+}
+
+<div class="container mt-3" style="width : 500px">
+    <h2 class="text-center">Register</h2>
+    <form id="form-register">
+        <div class="form-group">
+            <label for="email">Username:</label>
+            <input class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password again:</label>
+            <input type="password" class="form-control" name="password-again" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">FullName:</label>
+            <input class="form-control" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">School:</label>
+            <input class="form-control" name="school" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Phone:</label>
+            <input class="form-control" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Email:</label>
+            <input class="form-control" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Area:</label>
+            <input class="form-control" name="area" required>
+        </div>
+        <button class="btn btn-primary">Sign up</button>
+    </form>
+    <div class="text-danger warning text-center"></div>
+    <div class="text-success success text-center"></div>
+</div>

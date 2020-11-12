@@ -14,11 +14,13 @@
             cursor: pointer;
 
             .toolbar-title{
+                pointer-events: none;
                 font-size: 14px;
                 text-align: center;
             }
 
             .toolbar-icon{
+                pointer-events: none;
                 flex: 1;
                 background-size: 26px 26px;
                 background-position: center;

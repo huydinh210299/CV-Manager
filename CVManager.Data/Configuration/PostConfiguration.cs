@@ -13,6 +13,7 @@ namespace CVManager.Data.Configuration
         {
             builder.ToTable("Post");
             builder.HasKey(p => p.ID);
+            builder.Property(p => p.ID).HasDefaultValue(Guid.NewGuid());
             builder.Property(p => p.Title).IsRequired();
             builder.Property(p => p.Address).IsRequired();
             builder.Property(p => p.ExactAddress).IsRequired();
@@ -30,7 +31,8 @@ namespace CVManager.Data.Configuration
             builder.Property(p => p.Require).IsRequired();
             builder.Property(p => p.Benefit).IsRequired();
             builder.Property(p => p.Skill).IsRequired();
-            builder.Property(p => p.Status).IsRequired().HasDefaultValue(true);
+            builder.Property(p => p.Status).HasDefaultValue(true);
+            builder.Property(p => p.createDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

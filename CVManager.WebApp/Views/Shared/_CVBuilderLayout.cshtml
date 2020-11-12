@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="~/lib/grapesjs/css/grapes.min.css" />
     <link rel="stylesheet" href="~/dist/cvbuilder.css" />
     <link href="~/css/icons.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <partial name="./_Header.cshtml" />
     @RenderBody()
     @RenderSection("Scripts", required: false)
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/grapesjs/grapes.min.js"></script>
     <script src="~/lib/ckeditor_4.14.0/ckeditor.js"></script>
     <script src="~/lib/grapesjs/plugin/grapesjs-plugin-ckeditor-master/dist/grapesjs-plugin-ckeditor.min.js"></script>
+    <script src="~/js/cookie.js"></script>
     <script src="~/dist/cvbuilder.js"></script>
+    <script src="~/js/builderEvent.js"></script>
+    <script src="~/js/login.js"></script>
 </body>
 </html>

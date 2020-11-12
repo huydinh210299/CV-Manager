@@ -5,17 +5,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201029084000_Initial.cs" />
+    <Compile Remove="Migrations\20201029084000_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201029143711_Initial.cs" />
+    <Compile Remove="Migrations\20201029143711_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201029160436_Initial.cs" />
+    <Compile Remove="Migrations\20201029160436_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201029160900_Initial.cs" />
+    <Compile Remove="Migrations\20201029160900_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201029161432_Initial.cs" />
+    <Compile Remove="Migrations\20201029161432_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201103092852_Initial.cs" />
+    <Compile Remove="Migrations\20201103092852_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201103094116_Initial.cs" />
+    <Compile Remove="Migrations\20201103094116_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110074232_Initial.cs" />
+    <Compile Remove="Migrations\20201110074232_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110075553_Initial.cs" />
+    <Compile Remove="Migrations\20201110075553_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110140829_Initial.cs" />
+    <Compile Remove="Migrations\20201110140829_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110141345_Initial.cs" />
+    <Compile Remove="Migrations\20201110141345_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201110154651_Initial.cs" />
+    <Compile Remove="Migrations\20201110154651_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.9" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
   </ItemGroup>
 
 </Project>

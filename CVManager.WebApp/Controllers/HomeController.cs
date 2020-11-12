@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CVManager.WebApp.Models;
+using System.Security.Claims;
 
 namespace CVManager.WebApp.Controllers
 {
@@ -19,6 +20,13 @@ namespace CVManager.WebApp.Controllers
         }
 
         public IActionResult CVHome()
+        {
+            return View();
+        }
+        
+        [HttpGet]
+        [Route("redirect")]
+        public IActionResult Redirect()
         {
             return View();
         }

@@ -4,6 +4,9 @@ E:\20201\projectIII\CVManager\CVManager.Application\bin\Debug\netcoreapp3.1\CVMa
 E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.csprojAssemblyReference.cache
 E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.AssemblyInfoInputs.cache
 E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.AssemblyInfo.cs
-E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.csproj.CoreCompileInputs.cache
 E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.dll
 E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.pdb
+E:\20201\projectIII\CVManager\CVManager.Application\bin\Debug\netcoreapp3.1\CVManager.Data.dll
+E:\20201\projectIII\CVManager\CVManager.Application\bin\Debug\netcoreapp3.1\CVManager.Data.pdb
+E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.csproj.CopyComplete
+E:\20201\projectIII\CVManager\CVManager.Application\obj\Debug\netcoreapp3.1\CVManager.Application.csproj.CoreCompileInputs.cache

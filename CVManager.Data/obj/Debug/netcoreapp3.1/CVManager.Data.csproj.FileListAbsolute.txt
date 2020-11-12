@@ -7,6 +7,6 @@ E:\20201\projectIII\CVManager\CVManager.Data\bin\Debug\netcoreapp3.1\CVManager.D
 E:\20201\projectIII\CVManager\CVManager.Data\bin\Debug\netcoreapp3.1\CVManager.Data.runtimeconfig.dev.json
 E:\20201\projectIII\CVManager\CVManager.Data\obj\Debug\netcoreapp3.1\CVManager.Data.genruntimeconfig.cache
 E:\20201\projectIII\CVManager\CVManager.Data\bin\Debug\netcoreapp3.1\CVManager.Data.pdb
-E:\20201\projectIII\CVManager\CVManager.Data\obj\Debug\netcoreapp3.1\CVManager.Data.csproj.CoreCompileInputs.cache
 E:\20201\projectIII\CVManager\CVManager.Data\obj\Debug\netcoreapp3.1\CVManager.Data.dll
 E:\20201\projectIII\CVManager\CVManager.Data\obj\Debug\netcoreapp3.1\CVManager.Data.pdb
+E:\20201\projectIII\CVManager\CVManager.Data\obj\Debug\netcoreapp3.1\CVManager.Data.csproj.CoreCompileInputs.cache

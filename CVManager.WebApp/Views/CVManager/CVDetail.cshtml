@@ -1,0 +1,17 @@
+﻿@model CVDetailModal
+@{
+    ViewData["Title"] = "Cv Detail";
+    Layout = "_CVBuilderLayout";
+}
+
+<div class="container mt-5">
+    <div class="toolbar text-center"><div class="btn btn-primary mb-5 pt-2 pb-2 pl-4 pr-4 btn-printf">In CV</div></div>
+    <div class="preview-zone-wrapper d-flex justify-content-center">
+        <div class="preview-zone"></div>
+    </div>
+</div>
+<form hidden>
+    <input class="html-src" value="@Model.Html"/>
+    <input class="css-src" value="@Model.Css"/>
+</form>
+<script src="~/js/cvdetail.js"></script>

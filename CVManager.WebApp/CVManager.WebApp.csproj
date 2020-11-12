@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,7 +10,20 @@
     <Folder Include="src\style\CVBuilder\" />
     <Folder Include="src\style\CVManager\" />
     <Folder Include="wwwroot\content\icon\" />
-    <Folder Include="wwwroot\dist\" />
+    <Folder Include="wwwroot\content\upload\" />
+    <Folder Include="wwwroot\upload\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CVManager.Application\CVManager.Application.csproj" />
+    <ProjectReference Include="..\CVManager.Data\CVManager.Data.csproj" />
   </ItemGroup>
 
 </Project>

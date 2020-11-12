@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CVManager.WebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/dist/cvmanager.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/cookie.js"></script>
 </head>
 <body>
     <partial name="./_Header.cshtml" />
     @RenderBody()
     <partial name="./_Footer.cshtml" />
     @RenderSection("Scripts", required: false)
-
-    <script src="~/dist/cvmanager.js"></script>
+    <script src="~/js/login.js"></script>
 </body>
 </html>

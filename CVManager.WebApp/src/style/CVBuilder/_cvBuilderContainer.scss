@@ -4,6 +4,7 @@
     .cv-builder-container{
         display: flex;
         min-height: 300px;
+        height: 1000px;
         .cv-builder-layout{
             flex: 1;
             height: auto;
@@ -29,9 +30,14 @@
         .cv-builder-suggestion{
             width: 375px;
             min-width: 200px;
-            height: auto;
+            height: 100%;
+            overflow-y: scroll;
             border-left: thin solid #ccc;
             padding: 8px;
+        }
+
+        .cv-builder-suggestion::-webkit-scrollbar {
+            display: none;
         }
     }
 }
@@ -41,4 +47,42 @@
     height: 100% !important;
     width: 100% !important;
     top: 0 !important;
+}
+
+.gjs-mdl-dialog{
+    color: #000 !important;
+    background-color: #ccc !important;
+
+    .gjs-asset-manager{
+        .gjs-am-file-uploader{
+            display: none !important;
+        }
+
+        .gjs-am-assets-cont{
+            width: 100% !important;
+
+            .gjs-am-add-field{
+                input{
+                    background-color: #fff !important;
+                    border-radius: 3px !important;
+                }
+            }
+
+            button{
+                background-color: aliceblue !important;
+                border: thin solid azure !important;    
+                box-shadow: 1px 2px 5px black !important;
+            }
+
+            .gjs-am-assets{
+                display: flex;
+                flex-wrap: wrap;
+
+                .gjs-am-asset-image{
+                    width: 30% !important;
+                    margin-right: 3% !important;
+                }
+            }
+        }
+    }
 }

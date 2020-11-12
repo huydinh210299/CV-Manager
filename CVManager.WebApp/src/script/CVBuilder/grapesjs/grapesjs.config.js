@@ -12,7 +12,7 @@ export const editor = grapesjs.init({
             "/lib/bootstrap/dist/css/bootstrap.min.css"
         ],
         scripts: [
-            
+
         ],
     },
 
@@ -32,32 +32,32 @@ export const editor = grapesjs.init({
                 extraPlugins: "sharedspace,justify,colorbutton,panelbutton,font",
                 removePlugins: 'magicline',
                 toolbar: [{
-                        name: "styles",
-                        items: ["Font", "FontSize"]
-                    },
-                    ["Bold", "Italic", "Underline", "Strike"],
-                    {
-                        name: "paragraph",
-                        items: [
-                            "Outdent",
-                            "Indent",
-                            "NumberedList",
-                            "BulletedList",
-                            "-",
-                            "JustifyLeft",
-                            "JustifyCenter",
-                            "JustifyRight",
-                            "JustifyBlock",
-                        ],
-                    },
-                    {
-                        name: "links",
-                        items: ["Link", "Unlink"]
-                    },
-                    {
-                        name: "colors",
-                        items: ["TextColor", "BGColor"]
-                    },
+                    name: "styles",
+                    items: ["Font", "FontSize"]
+                },
+                ["Bold", "Italic", "Underline", "Strike"],
+                {
+                    name: "paragraph",
+                    items: [
+                        "Outdent",
+                        "Indent",
+                        "NumberedList",
+                        "BulletedList",
+                        "-",
+                        "JustifyLeft",
+                        "JustifyCenter",
+                        "JustifyRight",
+                        "JustifyBlock",
+                    ],
+                },
+                {
+                    name: "links",
+                    items: ["Link", "Unlink"]
+                },
+                {
+                    name: "colors",
+                    items: ["TextColor", "BGColor"]
+                },
                 ],
                 //font_names: resourceLandingPage.CKEDITOR.font_names_arr.join(';'),
                 //contentsCss: resourceLandingPage.CKEDITOR.contents_Css,
@@ -68,6 +68,11 @@ export const editor = grapesjs.init({
                 },
             },
         },
+    },
+
+    assetManager: {
+        assets: [],
+        addBtnText: 'Thêm ảnh',
     },
 
 })

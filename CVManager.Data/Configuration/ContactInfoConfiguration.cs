@@ -14,8 +14,10 @@ namespace CVManager.Data.Configuration
         {
             builder.ToTable("Contact_Info");
             builder.HasKey(i => i.ID);
+            builder.Property(i => i.ID).HasDefaultValue(Guid.NewGuid());
             builder.Property(i => i.Time).IsRequired();
             builder.Property(i => i.Address).IsRequired();
+            builder.Property(i => i.createDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

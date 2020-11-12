@@ -9,16 +9,20 @@
             <div class="toolbar-title">Thêm mục</div>
             <div class="toolbar-icon icon-add"></div>
         </div>
-        <div class="toolbar-item">
+        <div class="toolbar-item save-cv">
             <div class="toolbar-title">Lưu CV</div>
             <div class="toolbar-icon icon-save"></div>
+        </div>
+        <div class="toolbar-item cancel-cv-template">
+            <div class="toolbar-title">Bỏ mẫu CV</div>
+            <div class="toolbar-icon icon-cancel"></div>
         </div>
     </div>
     <div class="cv-builder-container">
         <div class="cv-builder-layout">
             <div id="cv-tittle">My CV</div>
             <div id="gjs" name="gjs">
-                
+
             </div>
         </div>
         <div class="cv-builder-suggestion">
@@ -44,17 +48,17 @@
                         <h4 class="suggestion-title">Hướng dẫn</h4>
                     </div>
                     <div class="suggestion-body" style="padding : 10px 0">
-                        <h4>Lưu ý: Kéo mẫu CV cần dùng vào khung!</h4> <br/>
-                        1. Điền đầy đủ các thông tin hiển thị trong CV<br/>
-                        2. Bấm nút Lưu CV<br/>
-                        3. Xem & Tải CV về máy<br/>
-                        Một số lưu ý chung:<br/>
-                        &nbsp;•Sắp xếp thời gian theo thứ tự mới -> cũ.<br/>
-                        &nbsp;•Ưu tiên những gì quan trọng, có liên quan đến vị trí ứng tuyển lên đầu.<br/>
+                        <h4>Lưu ý: Kéo mẫu CV cần dùng vào khung!</h4> <br />
+                        1. Điền đầy đủ các thông tin hiển thị trong CV<br />
+                        2. Bấm nút Lưu CV<br />
+                        3. Xem & Tải CV về máy<br />
+                        Một số lưu ý chung:<br />
+                        &nbsp;•Sắp xếp thời gian theo thứ tự mới -> cũ.<br />
+                        &nbsp;•Ưu tiên những gì quan trọng, có liên quan đến vị trí ứng tuyển lên đầu.<br />
                         &nbsp;•Ngày tháng nên dùng: 01/2016, 01-2016 hoặc Jan 2016
                     </div>
                     <div class="suggestion-footer">
-                        Mọi chi tiết vui lòng liên hệ<br/>
+                        Mọi chi tiết vui lòng liên hệ<br />
                         Email: dinhlun99hy@gmail.com
                     </div>
                 </div>
@@ -74,3 +78,43 @@
         </div>
     </div>
 </div>
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary btn-open-modal-create" data-toggle="modal" data-target="#modal-save-cv" hidden>
+    Open modal
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="modal-save-cv">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Lưu CV</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <input type="text" class="cv-name" placeholder="Tên của CV" style=" width: 100%; border-radius: 4px; border: 1px solid black;"/>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-save-cv" data-dismiss="modal">Lưu CV</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<form id="form-save-cv">
+    <input hidden class="type" name="type" />
+    <input hidden class="name" name="name" />
+    <input hidden class="phone" name="phone" />
+    <input hidden class="email" name="email" />
+    <input hidden class="html" name="html" />
+    <input hidden class="css" name="css" />
+    <input hidden class="avata" name="avata" />
+</form>

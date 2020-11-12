@@ -7,16 +7,16 @@ namespace CVManager.Data.Entities
     public class EnterpriseInfo
     {
         public Guid ID { get; set; }
-        public String Company_Name { get; set; }
-        public String Tax_Code { get; set; }
-        public String Area { get; set; }
-        public String Phone { get; set; }
-        public String Email { get; set; }
-        public String Website { get; set; }
-        public String Scale { get; set; }
+        public string Company_Name { get; set; }
+        public string Tax_Code { get; set; }
+        public string Area { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Website { get; set; }
+        public string Scale { get; set; }
         public Guid ID_Enterprise { get; set; }
-        public DateTime createDate { get; set; }
-        public DateTime modifyDate { get; set; }
+        public DateTime? createDate { get; set; }
+        public DateTime? modifyDate { get; set; }
         public Enterprise Enterprise { get; set; }
     }
 }

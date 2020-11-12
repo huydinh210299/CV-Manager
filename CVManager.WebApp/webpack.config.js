@@ -13,12 +13,6 @@ module.exports = {
             "./src/script/CVBuilder/index.js",
             "./src/style/CVBuilder/styles.scss",
         ],
-     
-        cvmanager: [
-            "./src/script/CVManager/index.js",
-            "./src/style/CVManager/styles.scss",
-        ],
-     
     },
 
     output: {

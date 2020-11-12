@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +22,8 @@ namespace CVManager.Data.EF
             var connectionString = configuration.GetConnectionString("CVManagerDatabase");
 
             var optionsBuilder = new DbContextOptionsBuilder<CVManagerDBContext>();
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseMySql(connectionString, 
+                mySqlOptions => mySqlOptions.ServerVersion(new Version(10, 5, 6), ServerType.MariaDb));
             return new CVManagerDBContext(optionsBuilder.Options);
         }
     }
