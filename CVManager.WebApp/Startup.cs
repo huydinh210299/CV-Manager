@@ -71,6 +71,7 @@ namespace CVManager.WebApp
             services.AddTransient<IAcountService, AcountService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICVService, CVService>();
+            services.AddTransient<IEnterpriseService, EnterpriseService>();
 
             //provider get acount
             services.AddTransient<IAcountProvider, AcountProvider>();
@@ -100,6 +101,11 @@ namespace CVManager.WebApp
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
 
             app.UseEndpoints(endpoints =>
             {
