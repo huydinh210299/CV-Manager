@@ -1,4 +1,5 @@
 ﻿using CVManager.Application.DTO;
+using CVManager.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,5 +10,7 @@ namespace CVManager.Application.Interface
     public interface IEnterpriseService
     {
         Task<int> createEntAcount(EntRegisterInfo entRegisterInfo);
+        Task<Enterprise> getEnterpriseFromAcountID(Guid ID);
+        Task<EnterpriseInfo> getEntPriseInfoFromAcountID(Guid ID);
     }
 }

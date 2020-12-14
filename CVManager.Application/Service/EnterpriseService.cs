@@ -2,8 +2,14 @@
 using CVManager.Application.Interface;
 using CVManager.Data.EF;
 using CVManager.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Storage.Internal;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +19,7 @@ namespace CVManager.Application.Service
     {
         private readonly IAcountService _acountService;
         private readonly CVManagerDBContext _dbContext;
-        public EnterpriseService(IAcountService acountService, CVManagerDBContext dbContext)
+        public EnterpriseService(CVManagerDBContext dbContext, IAcountService acountService)
         {
             this._acountService = acountService;
             this._dbContext = dbContext;
@@ -70,6 +76,17 @@ namespace CVManager.Application.Service
 
                 return await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<Enterprise> getEnterpriseFromAcountID(Guid ID)
+        {
+            return await _dbContext.Enterprises.FirstOrDefaultAsync(e => e.ID_Acount == ID);
+        }
+
+        public async Task<EnterpriseInfo> getEntPriseInfoFromAcountID(Guid ID)
+        {
+            var enterprise = await this.getEnterpriseFromAcountID(ID);
+            return await _dbContext.EnterpriseInfos.FirstOrDefaultAsync(i => i.ID_Enterprise == enterprise.ID);
         }
     }
 }

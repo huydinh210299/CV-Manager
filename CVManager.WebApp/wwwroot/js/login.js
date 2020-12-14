@@ -68,7 +68,8 @@ $(document).on('submit', '#form-login', async function(e){
 })
 
 //Hàm thực hiện chức năng logout
-$(document).on('click', '.logout-btn', function(e){
+$(document).on('click', '.logout-btn', function (e) {
+    debugger
     delete_cookie('jwt');
     window.location.replace("/");
 })

@@ -45,7 +45,13 @@ namespace CVManager.WebApp
 
             //Sử dụng RazorPages
             services.AddRazorPages();
-            
+
+            //newtonsoftjson
+            services.AddControllers().AddNewtonsoftJson();
+
+            //CORS
+            //services.AddCors();
+
             //Authen
             var key = "this is private Key";
 
@@ -72,6 +78,7 @@ namespace CVManager.WebApp
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICVService, CVService>();
             services.AddTransient<IEnterpriseService, EnterpriseService>();
+            services.AddTransient<IPostService, PostService>();
 
             //provider get acount
             services.AddTransient<IAcountProvider, AcountProvider>();
@@ -102,10 +109,13 @@ namespace CVManager.WebApp
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials()); // allow credentials
+            //.AllowAnyOrigin()
+            //.AllowAnyMethod()
+            //.AllowAnyHeader());
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true) // allow any origin
+            .AllowCredentials()); // allow credentials
 
             app.UseEndpoints(endpoints =>
             {

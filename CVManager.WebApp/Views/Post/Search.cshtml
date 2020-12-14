@@ -1,0 +1,111 @@
+﻿@model Tuple<List<PostModel>, PostSearch>
+@{
+    //ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Login";
+    Layout = "_CVHomeLayout";
+}
+<link rel="stylesheet" href="~/css/table.css" />
+
+<div class="container pt-5">
+    <div class="form-search d-flex p-4" style="height:100px; background-color: rgba(83, 87, 90, 0.8);">
+        <form style="width: 100%;" class="form-search">
+            <div class="row">
+                <div class="col-md-7">
+                    <input type="text" class="name" name="title" style="height:45px; width: 100%; border-radius:3px; border: unset; text-indent: 1rem;" placeholder="Tên công việc, vị trí bạn muốn ứng tuyển" value="@Model.Item2.Title" />
+                </div>
+                <div class="col-md-3">
+                    <select name="area" class="area" style="height:45px;width: 100%; border-radius:3px;">
+                        <option value="">Tất cả</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex">
+                    <button type="submit" class="btn btn-success btn-search">Tìm kiếm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    @if (Model.Item1.Count == 0)
+    {
+        <h1 class="text-center text-success mt-3">Không có công việc phù hợp</h1>
+        @if (Model.Item2.Page == 1)
+        {
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <ul class="pagination">
+                        <li class="page-item"><button class="page-link btn-prev" disabled>Previous</button></li>
+                        <li class="page-item"><button class="page-link btn-next" disabled>Next</button></li>
+                    </ul>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <ul class="pagination">
+                        <li class="page-item"><button class="page-link btn-prev">Previous</button></li>
+                        <li class="page-item"><button class="page-link btn-next" disabled>Next</button></li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="list-job-wrapper  mt-5">
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">Tên công ty</th>
+                        <th class="text-left">Thông tin</th>
+                        <th class="text-left">Khu vực</th>
+                        <th class="text-left">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="table-hover">
+                    @foreach (var p in Model.Item1)
+                    {
+                        <tr>
+                            <td class="text-left">@p.Company_Name</td>
+                            <td class="text-left">@p.Title</td>
+                            <td class="text-left">@p.Address</td>
+                            <td class="text-center"><a href="/post/@p.PostID" class="btn btn-primary">Xem chi tiết</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Item2.Page == 1)
+        {
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <ul class="pagination">
+                        <li class="page-item"><button class="page-link btn-prev" disabled>Previous</button></li>
+                        <li class="page-item"><button class="page-link btn-next">Next</button></li>
+                    </ul>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row mt-5">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <ul class="pagination">
+                        <li class="page-item"><button class="page-link btn-prev">Previous</button></li>
+                        <li class="page-item"><button class="page-link btn-next">Next</button></li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+
+<form action="/post/search" method="post" id="form-search" hidden>
+    <input class="title" name="title" value="@Model.Item2.Title"/>
+    <input class="address" name="address" value="@Model.Item2.Address"/>
+    <input class="page" name="page" value="@Model.Item2.Page" />
+</form>
+
+<script src="~/js/postsearch.js"></script>

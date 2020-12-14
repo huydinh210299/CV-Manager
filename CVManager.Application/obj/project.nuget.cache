@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BUkuJ/RKZbHN5lq7cISIeu0FZRTL+eWn7Foa3w832VJPaap7hRBSV8lspWpn0YrxwVm8nk1n/oKqhjsBf4AiMg==",
+  "dgSpecHash": "gZggJmBhfkGBXfrQ3MMM0Qe6fo0ppde7sUtILjKR0OW8lppjGmFi+noR5hl+KKbClZ+l3KnRIe3BtyXDPjqwUQ==",
   "success": true,
   "projectFilePath": "E:\\20201\\projectIII\\CVManager\\CVManager.Application\\CVManager.Application.csproj",
   "expectedPackageFiles": [
@@ -8,11 +8,13 @@
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
-    "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.9\\microsoft.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.9\\microsoft.entityframeworkcore.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.9\\microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512",
+    "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.9\\microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.9\\microsoft.entityframeworkcore.relational.3.1.9.nupkg.sha512",
+    "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.9\\microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.9\\microsoft.extensions.caching.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.9\\microsoft.extensions.caching.memory.3.1.9.nupkg.sha512",
     "C:\\Users\\dinhl\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",
