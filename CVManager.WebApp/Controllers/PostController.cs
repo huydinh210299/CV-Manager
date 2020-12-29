@@ -65,6 +65,7 @@ namespace CVManager.WebApp.Controllers
             var p = _postService.postInfo(postID);
             PostModel model = new PostModel()
             {
+                PostID = p.Post_ID,
                 Company_Name = p.Company_Name,
                 Title = p.Title,
                 Address = p.Address,

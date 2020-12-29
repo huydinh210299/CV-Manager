@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CVManager.Data.Migrations
@@ -11,11 +12,12 @@ namespace CVManager.Data.Migrations
                 name: "Acount",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("66c69b69-04b1-4a2a-bca6-3282a24cac46")),
+                    ID = table.Column<Guid>(nullable: false),
                     Username = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     ObjectRole = table.Column<string>(nullable: false, defaultValue: "ROLE_USER"),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 211, DateTimeKind.Local).AddTicks(4456)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
@@ -27,14 +29,15 @@ namespace CVManager.Data.Migrations
                 name: "Enterprise",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("d1a079d2-3ac9-4bb2-a078-6ce937c9a68a")),
+                    ID = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: false),
                     Gender = table.Column<bool>(nullable: false),
                     Skype = table.Column<string>(nullable: true),
                     Position = table.Column<string>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 194, DateTimeKind.Local).AddTicks(7833)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true),
                     ID_Acount = table.Column<Guid>(nullable: false)
                 },
@@ -53,14 +56,15 @@ namespace CVManager.Data.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("e1c4c1be-eafe-478e-a952-5f12f54f170c")),
+                    ID = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     School = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Area = table.Column<string>(nullable: true),
                     Status = table.Column<bool>(nullable: false, defaultValue: true),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 185, DateTimeKind.Local).AddTicks(8493)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true),
                     ID_Acount = table.Column<Guid>(nullable: false)
                 },
@@ -79,7 +83,7 @@ namespace CVManager.Data.Migrations
                 name: "Enterprise_Info",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("625e6778-dbd5-4a9f-890d-751c16e85540")),
+                    ID = table.Column<Guid>(nullable: false),
                     Company_Name = table.Column<string>(nullable: false),
                     Tax_Code = table.Column<string>(nullable: false),
                     Area = table.Column<string>(nullable: false),
@@ -88,7 +92,8 @@ namespace CVManager.Data.Migrations
                     Website = table.Column<string>(nullable: false),
                     Scale = table.Column<string>(nullable: false),
                     ID_Enterprise = table.Column<Guid>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 209, DateTimeKind.Local).AddTicks(7686)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
@@ -106,7 +111,7 @@ namespace CVManager.Data.Migrations
                 name: "Post",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("32b5bb8a-f082-44ba-885b-77a69440afa4")),
+                    ID = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: false),
                     ExactAddress = table.Column<string>(nullable: false),
@@ -125,7 +130,8 @@ namespace CVManager.Data.Migrations
                     Benefit = table.Column<string>(nullable: false),
                     Skill = table.Column<string>(nullable: false),
                     Status = table.Column<bool>(nullable: false, defaultValue: true),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 218, DateTimeKind.Local).AddTicks(6573)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true),
                     EnterpriseID = table.Column<Guid>(nullable: true)
                 },
@@ -141,40 +147,10 @@ namespace CVManager.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Contact",
-                columns: table => new
-                {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("74c963d4-5502-4f94-a767-9115fcdb433c")),
-                    Status = table.Column<bool>(nullable: false),
-                    Type = table.Column<int>(nullable: false),
-                    Result = table.Column<bool>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 220, DateTimeKind.Local).AddTicks(1081)),
-                    modifyDate = table.Column<DateTime>(nullable: true),
-                    UserID = table.Column<Guid>(nullable: true),
-                    EnterpriseID = table.Column<Guid>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contact", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Contact_Enterprise_EnterpriseID",
-                        column: x => x.EnterpriseID,
-                        principalTable: "Enterprise",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Contact_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CV",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("4509c5de-4f2b-43e9-b956-c8da69ed6b9b")),
+                    ID = table.Column<Guid>(nullable: false),
                     CvName = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
@@ -184,7 +160,8 @@ namespace CVManager.Data.Migrations
                     Type = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false, defaultValue: 1),
                     Is_choosen = table.Column<bool>(nullable: false, defaultValue: false),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 215, DateTimeKind.Local).AddTicks(7153)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true),
                     UserID = table.Column<Guid>(nullable: true)
                 },
@@ -200,14 +177,47 @@ namespace CVManager.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Contact",
+                columns: table => new
+                {
+                    ID = table.Column<Guid>(nullable: false),
+                    CompanyName = table.Column<string>(nullable: true),
+                    Status = table.Column<bool>(nullable: false, defaultValue: true),
+                    Type = table.Column<int>(nullable: false),
+                    Result = table.Column<string>(nullable: false, defaultValue: "pending"),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    modifyDate = table.Column<DateTime>(nullable: true),
+                    UserID = table.Column<Guid>(nullable: true),
+                    PostID = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contact", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Contact_Post_PostID",
+                        column: x => x.PostID,
+                        principalTable: "Post",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Contact_User_UserID",
+                        column: x => x.UserID,
+                        principalTable: "User",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Contact_Info",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(nullable: false, defaultValue: new Guid("93360fbf-0540-480e-8078-a61c8b2969f8")),
+                    ID = table.Column<Guid>(nullable: false),
                     Time = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(nullable: false),
                     ID_Contact = table.Column<Guid>(nullable: false),
-                    createDate = table.Column<DateTime>(nullable: true, defaultValue: new DateTime(2020, 11, 11, 10, 31, 53, 221, DateTimeKind.Local).AddTicks(6712)),
+                    createDate = table.Column<DateTime>(nullable: true)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     modifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
@@ -222,9 +232,9 @@ namespace CVManager.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contact_EnterpriseID",
+                name: "IX_Contact_PostID",
                 table: "Contact",
-                column: "EnterpriseID");
+                column: "PostID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Contact_UserID",
@@ -278,16 +288,16 @@ namespace CVManager.Data.Migrations
                 name: "Enterprise_Info");
 
             migrationBuilder.DropTable(
-                name: "Post");
-
-            migrationBuilder.DropTable(
                 name: "Contact");
 
             migrationBuilder.DropTable(
-                name: "Enterprise");
+                name: "Post");
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Enterprise");
 
             migrationBuilder.DropTable(
                 name: "Acount");

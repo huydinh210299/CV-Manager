@@ -71,5 +71,12 @@ namespace CVManager.WebApp.Controllers.API
             }    
         }
 
+        [AllowAnonymous]
+        [Route("cvinfo")]
+        [HttpGet]
+        public CV CVInfo([FromQuery] Guid userid)
+        {
+            return _cvService.getMainByUserID(userid);
+        }
     }
 }

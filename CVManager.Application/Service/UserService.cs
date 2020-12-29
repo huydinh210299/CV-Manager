@@ -66,5 +66,39 @@ namespace CVManager.Application.Service
                 return _dbContext.Users.FirstOrDefault(u => u.ID_Acount == acountID);
             }
         }
+
+        public List<UserAcountDetails> listUser(int? page, string school)
+        {
+            var Page = page ?? 1;
+            var rs = (from u in _dbContext.Users
+                      where (string.IsNullOrEmpty(school) || u.School.ToLower().Contains(school.ToLower()))
+                      select new UserAcountDetails()
+                      {
+                          ID = u.ID,
+                          Area = u.Area,
+                          Email = u.Email,
+                          Name = u.Name,
+                          School = u.School,
+                          Phone = u.Phone
+                      }
+                      ).Skip(10 * (Page - 1)).Take(10).ToList();
+            return rs;
+        }
+
+        public User getUserInfo()
+        {
+            return _acountProvider.getCurrentUser();
+        }
+
+        public async Task<int> saveProfile(Guid ID, string name, string school, string phone, string email, string area)
+        {
+            User user = _dbContext.Users.FirstOrDefault(u => u.ID == ID);
+            user.Name = name;
+            user.Phone = phone;
+            user.Email = email;
+            user.School = school;
+            user.Area = area;
+            return await _dbContext.SaveChangesAsync();
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿@model Tuple<List<PostModel>, PostSearch>
 @{
-    //ViewData["Title"] = "Home Page";
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Job";
     Layout = "_CVHomeLayout";
 }
 <link rel="stylesheet" href="~/css/table.css" />
@@ -52,29 +51,30 @@
     }
     else
     {
-        <div class="list-job-wrapper  mt-5">
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Tên công ty</th>
-                        <th class="text-left">Thông tin</th>
-                        <th class="text-left">Khu vực</th>
-                        <th class="text-left">Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody class="table-hover">
-                    @foreach (var p in Model.Item1)
-                    {
-                        <tr>
-                            <td class="text-left">@p.Company_Name</td>
-                            <td class="text-left">@p.Title</td>
-                            <td class="text-left">@p.Address</td>
-                            <td class="text-center"><a href="/post/@p.PostID" class="btn btn-primary">Xem chi tiết</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+<div class="list-job-wrapper  mt-5">
+    <h3 class="text-center mb-3">Danh sách công việc</h3>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-left">Tên công ty</th>
+                <th class="text-left">Thông tin</th>
+                <th class="text-left">Khu vực</th>
+                <th class="text-left">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            @foreach (var p in Model.Item1)
+            {
+                <tr>
+                    <td class="text-left">@p.Company_Name</td>
+                    <td class="text-left">@p.Title</td>
+                    <td class="text-left">@p.Address</td>
+                    <td class="text-center"><a href="/post/@p.PostID" class="btn btn-primary">Xem chi tiết</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
         @if (Model.Item2.Page == 1)
         {

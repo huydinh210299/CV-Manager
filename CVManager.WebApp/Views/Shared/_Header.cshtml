@@ -1,4 +1,6 @@
-﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo -->
     <a class="navbar-brand" href="/">CVBuilder</a>
 
@@ -14,20 +16,37 @@
             <a class="nav-link" href="/cvmanager">Quản lý CV</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Công ty</a>
+            <a class="nav-link" href="/company">Công ty</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/user/login">Login</a>
-        </li>
-
-        <li class="nav-item dropdown text-center">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Acount
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Edit profile</a>
-                <button class="dropdown-item logout-btn">Logout</button>
-            </div>
-        </li>
+        @{
+            var token = HttpContextAccessor.HttpContext.Request.Cookies["jwt"];
+            if (token != null)
+            {
+                <li class="nav-item dropdown text-center">
+                    <a class="nav-link dropdown-toggle" href="#" id="work" data-toggle="dropdown">
+                        Quản lý việc làm
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/contact/apply">Đã ứng tuyển</a>
+                        <a class="dropdown-item" href="/contact/invited">Lời mời</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown text-center">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Acount
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profile">Edit profile</a>
+                        <button class="dropdown-item logout-btn">Logout</button>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/login">Login</a>
+                </li>
+            }
+        }
     </ul>
 </nav>

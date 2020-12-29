@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace CVManager.Data.Entities
@@ -17,7 +18,6 @@ namespace CVManager.Data.Entities
         public DateTime? modifyDate { get; set; }
         public EnterpriseInfo EnterpriseInfo { get; set; }
         public ICollection<Post> Posts { get; set; }
-        public ICollection<Contact> Contacts { get; set; }
         public Acount Acount { get; set; }
         public Guid ID_Acount { get; set; }
     }

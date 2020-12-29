@@ -21,8 +21,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("66c69b69-04b1-4a2a-bca6-3282a24cac46"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("ObjectRole")
                         .IsRequired()
@@ -40,8 +39,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 211, DateTimeKind.Local).AddTicks(4456));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -55,8 +53,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("4509c5de-4f2b-43e9-b956-c8da69ed6b9b"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Css")
                         .IsRequired()
@@ -99,8 +96,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 215, DateTimeKind.Local).AddTicks(7153));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -116,17 +112,24 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("74c963d4-5502-4f94-a767-9115fcdb433c"));
-
-                    b.Property<Guid?>("EnterpriseID")
                         .HasColumnType("char(36)");
 
-                    b.Property<bool>("Result")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<Guid?>("PostID")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4")
+                        .HasDefaultValue("pending");
 
                     b.Property<bool>("Status")
-                        .HasColumnType("tinyint(1)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(true);
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -136,15 +139,14 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 220, DateTimeKind.Local).AddTicks(1081));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("EnterpriseID");
+                    b.HasIndex("PostID");
 
                     b.HasIndex("UserID");
 
@@ -155,8 +157,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("93360fbf-0540-480e-8078-a61c8b2969f8"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -170,8 +171,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 221, DateTimeKind.Local).AddTicks(6712));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -188,8 +188,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("d1a079d2-3ac9-4bb2-a078-6ce937c9a68a"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -218,8 +217,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 194, DateTimeKind.Local).AddTicks(7833));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -236,8 +234,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("625e6778-dbd5-4a9f-890d-751c16e85540"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Area")
                         .IsRequired()
@@ -272,8 +269,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 209, DateTimeKind.Local).AddTicks(7686));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -290,8 +286,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("32b5bb8a-f082-44ba-885b-77a69440afa4"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -366,8 +361,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 218, DateTimeKind.Local).AddTicks(6573));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -383,8 +377,7 @@ namespace CVManager.Data.Migrations
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasDefaultValue(new Guid("e1c4c1be-eafe-478e-a952-5f12f54f170c"));
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Area")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -415,8 +408,7 @@ namespace CVManager.Data.Migrations
 
                     b.Property<DateTime?>("createDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2020, 11, 11, 10, 31, 53, 185, DateTimeKind.Local).AddTicks(8493));
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("modifyDate")
                         .HasColumnType("datetime(6)");
@@ -438,9 +430,9 @@ namespace CVManager.Data.Migrations
 
             modelBuilder.Entity("CVManager.Data.Entities.Contact", b =>
                 {
-                    b.HasOne("CVManager.Data.Entities.Enterprise", "Enterprise")
+                    b.HasOne("CVManager.Data.Entities.Post", "Post")
                         .WithMany("Contacts")
-                        .HasForeignKey("EnterpriseID");
+                        .HasForeignKey("PostID");
 
                     b.HasOne("CVManager.Data.Entities.User", "User")
                         .WithMany("Contacts")

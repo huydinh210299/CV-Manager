@@ -23,6 +23,7 @@ namespace CVManager.WebApp
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -47,10 +48,15 @@ namespace CVManager.WebApp
             services.AddRazorPages();
 
             //newtonsoftjson
-            services.AddControllers().AddNewtonsoftJson();
+            //services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             //CORS
-            //services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("myCORS", options => options.AllowAnyOrigin());
+            });
+
 
             //Authen
             var key = "this is private Key";
@@ -79,6 +85,7 @@ namespace CVManager.WebApp
             services.AddTransient<ICVService, CVService>();
             services.AddTransient<IEnterpriseService, EnterpriseService>();
             services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IContactService, ContactService>();
 
             //provider get acount
             services.AddTransient<IAcountProvider, AcountProvider>();
@@ -106,16 +113,28 @@ namespace CVManager.WebApp
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseCors(x => x
+            app.UseCors(builder => builder
             //.AllowAnyOrigin()
-            //.AllowAnyMethod()
-            //.AllowAnyHeader());
             .AllowAnyMethod()
             .AllowAnyHeader()
             .SetIsOriginAllowed(origin => true) // allow any origin
-            .AllowCredentials()); // allow credentials
+            .AllowCredentials());
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            //app.UseMvc();
+
+
+            //app.UseCors(MyAllowSpecificOrigins);
+            //app.UseCors(x => x
+            ////.AllowAnyOrigin()
+            ////.AllowAnyMethod()
+            ////.AllowAnyHeader());
+            //.AllowAnyMethod()
+            //.AllowAnyHeader()
+            //.SetIsOriginAllowed(origin => true) // allow any origin
+            //.AllowCredentials()); // allow credentials
 
             app.UseEndpoints(endpoints =>
             {

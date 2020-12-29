@@ -16,5 +16,6 @@ namespace CVManager.Application.Interface
         Task<int> setMainCV(Guid cvID);
         CV getByID(Guid cvID);
         Task<int> edit(CVEdit cVEdit);
+        CV getMainByUserID(Guid userID);
     }
 }

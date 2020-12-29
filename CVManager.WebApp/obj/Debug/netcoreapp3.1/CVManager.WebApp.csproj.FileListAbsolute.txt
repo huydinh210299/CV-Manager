@@ -92,3 +92,11 @@ E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\CVManager
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Post\Index.cshtml.g.cs
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Post\PostDetail.cshtml.g.cs
 E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Post\Search.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\CVManager\MainCVDetail.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NoLayout.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Apply.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Invited.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Company\Index.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Company\Info.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Company\Search.cshtml.g.cs
+E:\20201\projectIII\CVManager\CVManager.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Profile.cshtml.g.cs

@@ -12,5 +12,7 @@ namespace CVManager.Application.Interface
         Task<int> createEntAcount(EntRegisterInfo entRegisterInfo);
         Task<Enterprise> getEnterpriseFromAcountID(Guid ID);
         Task<EnterpriseInfo> getEntPriseInfoFromAcountID(Guid ID);
+        List<Enterprise> getListEnt(string companyName, string area, int page);
+        Enterprise getEntInfo(Guid entID);
     }
 }

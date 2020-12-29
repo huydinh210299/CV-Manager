@@ -25,7 +25,7 @@ namespace CVManager.WebApp.Controllers
         public IActionResult Index()
         {
             var user = _userService.checkUserFromToken();
-            if(user == null)
+            if (user == null)
             {
                 return Redirect("/redirect");
             }
@@ -88,6 +88,19 @@ namespace CVManager.WebApp.Controllers
                 };
                 return View(cvDetail);
             }
+        }
+
+        [Route("mainCVdetail/{ID}")]
+        public IActionResult MainCVDetail(Guid ID)
+        {
+            var cvInfo = _cVService.getByID(ID);
+            var cvDetail = new CVDetailModal()
+            {
+                Html = cvInfo.Html,
+                Css = cvInfo.Css,
+                ID = cvInfo.ID
+            };
+            return View(cvDetail);
         }
     }
 }

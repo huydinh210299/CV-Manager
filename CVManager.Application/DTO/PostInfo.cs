@@ -6,6 +6,7 @@ namespace CVManager.Application.DTO
 {
     public class PostInfo
     {
+        public Guid PostID { get; set; }
         public string Title { get; set; }
         public string Address { get; set; }
         public string ExactAddress { get; set; }
@@ -15,7 +16,7 @@ namespace CVManager.Application.DTO
         public int Amount { get; set; }
         public string Type { get; set; }
         public int Experience { get; set; }
-        public string Submit_Deadline { get; set; }
+        public DateTime Submit_Deadline { get; set; }
         public string Reciever { get; set; }
         public string Email_Reciever { get; set; }
         public string Phone_Reciever { get; set; }

@@ -1,4 +1,5 @@
-﻿using CVManager.Data.Entities;
+﻿
+using CVManager.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -13,7 +14,7 @@ namespace CVManager.Data.Configuration
         {
             builder.ToTable("Post");
             builder.HasKey(p => p.ID);
-            builder.Property(p => p.ID).HasDefaultValue(Guid.NewGuid());
+            builder.Property(p => p.ID).ValueGeneratedOnAdd();
             builder.Property(p => p.Title).IsRequired();
             builder.Property(p => p.Address).IsRequired();
             builder.Property(p => p.ExactAddress).IsRequired();
@@ -32,7 +33,10 @@ namespace CVManager.Data.Configuration
             builder.Property(p => p.Benefit).IsRequired();
             builder.Property(p => p.Skill).IsRequired();
             builder.Property(p => p.Status).HasDefaultValue(true);
-            builder.Property(p => p.createDate).HasDefaultValue(DateTime.Now);
+            builder.Property(p => p.createDate).ValueGeneratedOnAdd();
+
+            builder.HasMany(p => p.Contacts)
+                .WithOne(c => c.Post);
         }
     }
 }

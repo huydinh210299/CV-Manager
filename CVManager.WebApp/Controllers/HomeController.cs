@@ -19,9 +19,10 @@ namespace CVManager.WebApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult CVHome()
+        public RedirectResult CVHome()
         {
-            return View();
+            return Redirect("/post");
+            //return View();
         }
         
         [HttpGet]

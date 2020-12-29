@@ -1,0 +1,75 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_CVHomeLayout";
+}
+
+<div class="container mt-5">
+    <h3 class="text-center">Thông tin cá nhân</h3>
+    <form id="form-profile">
+        <input value="@Model.ID" hidden name="id" />
+        <div class="form-group">
+            <label>Họ tên:</label>
+            <input class="form-control" name="name" value="@Model.Name">
+        </div>
+        <div class="form-group">
+            <label>Số điện thoại:</label>
+            <input class="form-control" name="phone" value="@Model.Phone">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control" name="email" value="@Model.Email">
+        </div>
+        <div class="form-group">
+            <label>Trường:</label>
+            <input class="form-control" name="school" value="@Model.School">
+        </div>
+        <div class="form-group">
+            <label>Khu vực:</label>
+            <select name="area" class="area form-control">
+            </select>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+        </div>
+    </form>
+</div>
+
+<input hidden class="address" value="@Model.Area" />
+
+<script>
+    $(document).on('submit', '#form-profile', async function (e) {
+        e.preventDefault();
+        const ID = $('#form-profile [name="id"]').val();
+        const name = $('#form-profile [name="name"]').val();
+        const school = $('#form-profile [name="school"]').val();
+        const phone = $('#form-profile [name="phone"]').val();
+        const email = $('#form-profile [name="email"]').val();
+        const area = $('#form-profile [name="area"]').val();
+        const data = {
+            id: ID,
+            name: name,
+            school: school,
+            phone: phone,
+            email: email,
+            area: area,
+        }
+        try {
+            const rs = await $.ajax({
+                type: "POST",
+                url: "/api/user/save-profile",
+                contentType: "application/json",
+                data: JSON.stringify(data)
+            });
+            if (rs.statusCode === 200) {
+                alert(rs.statusText)
+            }
+            if (rs.statusCode === 400) {
+                alert(rs.statusText)
+            }
+        }
+        catch (exception) {
+            console.log(exception);
+        }
+    });
+</script>

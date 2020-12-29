@@ -88,5 +88,20 @@ namespace CVManager.Application.Service
             var enterprise = await this.getEnterpriseFromAcountID(ID);
             return await _dbContext.EnterpriseInfos.FirstOrDefaultAsync(i => i.ID_Enterprise == enterprise.ID);
         }
+
+        public List<Enterprise> getListEnt(string companyName, string area, int page)
+        {
+            var rs = _dbContext.Enterprises.Include(e => e.EnterpriseInfo).Where(e => (string.IsNullOrEmpty(companyName) || e.EnterpriseInfo.Company_Name.ToLower().Contains(companyName))
+                                                    && (string.IsNullOrEmpty(area) || e.EnterpriseInfo.Area == area))
+                                                    .Skip(5 * (page - 1)).Take(5).ToList();
+            return rs;
+        }
+
+        public Enterprise getEntInfo(Guid entID)
+        {
+            return _dbContext.Enterprises.Include(e => e.EnterpriseInfo)
+                    .Include(e => e.Posts).FirstOrDefault(e => e.ID == entID);
+        }
+
     }
 }

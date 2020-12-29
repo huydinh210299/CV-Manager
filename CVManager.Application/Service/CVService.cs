@@ -111,5 +111,10 @@ namespace CVManager.Application.Service
             cv.Css = cVEdit.Css;
             return await _dbContext.SaveChangesAsync();
         }
+
+        public CV getMainByUserID(Guid userID)
+        {
+            return _dbContext.CVs.FirstOrDefault(cv => cv.User.ID == userID && cv.Is_choosen == true);
+        }
     }
 }

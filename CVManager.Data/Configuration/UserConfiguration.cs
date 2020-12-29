@@ -13,14 +13,14 @@ namespace CVManager.Data.Configuration
         {
             builder.ToTable("User");
             builder.HasKey(u => u.ID);
-            builder.Property(u => u.ID).HasDefaultValue(Guid.NewGuid());
+            builder.Property(u => u.ID).ValueGeneratedOnAdd();
             builder.Property(u => u.Name).IsRequired();
             builder.Property(u => u.School).IsRequired();
             builder.Property(u => u.Email).IsRequired();
             builder.Property(u => u.Phone).IsRequired();
             builder.Property(u => u.ID_Acount).IsRequired();
             builder.Property(u => u.Status).HasDefaultValue(true);
-            builder.Property(u => u.createDate).HasDefaultValue(DateTime.Now);
+            builder.Property(u => u.createDate).ValueGeneratedOnAdd();
 
             builder.HasMany(u => u.CVs)
                 .WithOne(c => c.User);

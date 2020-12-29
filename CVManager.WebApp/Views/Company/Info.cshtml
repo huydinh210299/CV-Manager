@@ -1,0 +1,61 @@
+﻿@model CompanyInfoModel
+@{
+    ViewData["Title"] = "Company Info";
+    Layout = "_CVHomeLayout";
+}
+
+<link rel="stylesheet" href="~/css/table.css" />
+
+<div class="container mt-5" style="background-color:#EBEBEB">
+    <div class="row">
+        <div class="col-md-12" style="font-size:150%;font-weight:bold">Giới thiệu công ty</div>
+        <div class="col-md-12">Tên công ty: @Model.CompanyName</div>
+        <div class="col-md-12">Khu vực: @Model.Area</div>
+        <div class="col-md-12">Số ĐT: @Model.Phone</div>
+        <div class="col-md-12">Email: @Model.Email</div>
+        <div class="col-md-12">Website: @Model.Website</div>
+        @if (Model.Scale == ">500")
+        {
+            <div class="col-md-12">Quy mô: Lớn hơn 500 nhân viên</div>
+        }
+        else
+        {
+            <div class="col-md-12">Quy mô: @Model.Scale nhân viên</div>
+        }
+    </div>
+</div>
+
+<div class="container mt-4" style=" padding: 20px;background-color: #EBEBEB;">
+    <div class="row">
+        <div class="col-md-12" style="font-size: 150%; font-weight: bold">Danh sách công việc</div>
+        @if (Model.Posts.Count == 0)
+        {
+            <div class="col-md-12">Công ty chưa có bài tuyển dụng nào</div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <table class="table-fill">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Thông tin</th>
+                            <th class="text-left">Đãi ngộ</th>
+                            <th class="text-left">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                        @foreach (var p in Model.Posts)
+                        {
+                            <tr>
+                                <td class="text-left">@p.Title</td>
+                                <td class="text-left">@p.Salary</td>
+                                <td class="text-left d-flex justify-content-center"><a href="/post/@p.ID" class="btn btn-primary">Xem chi tiết</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+

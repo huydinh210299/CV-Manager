@@ -1,0 +1,116 @@
+﻿@model List<ContactModel>
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "_CVHomeLayout";
+}
+<link href="~/css/table.css" rel="stylesheet" />
+<div class="container-fluid mt-5">
+    <h3 class="text-center mb-4">Danh sách lời mời ứng tuyển</h3>
+    @if (Model.Count == 0)
+    {
+        <h3 class="text-success text-center">Không có lời mời nào</h3>
+    }
+    else
+    {
+        <table class="table-fill">
+            <thead>
+                <tr>
+                    <th class="text-left">Tên công ty</th>
+                    <th class="text-left">Thông tin</th>
+                    <th class="text-left">Thời gian</th>
+                    <th class="text-left">Địa điểm</th>
+                    <th class="text-left">Trạng thái</th>
+                    <th class="text-left"></th>
+                </tr>
+            </thead>
+            <tbody class="table-hover">
+                @foreach (var ct in Model)
+                {
+                    <tr>
+                        <td class="text-left">@ct.CompanyName</td>
+                        <td class="text-left"><a href="/post/@ct.PostID">@ct.Title</a></td>
+                        @if (DateTime.Compare(ct.Time, DateTime.MaxValue) == 0)
+                        {
+                            <td class="text-left">Chưa có thông tin</td>
+                        }
+                        else
+                        {
+                            <td class="text-left">@ct.Time</td>
+                        }
+                        <td class="text-left">@ct.Address</td>
+                        <td class="text-left">@ct.Result</td>
+                        <td class="text-left d-flex justify-content-around" style="min-width: 150px">
+                            <button class="btn btn-danger btn-comfirm-type" data="@ct.ID" data-type="refuse" data-toggle="modal" data-target="#myModal">Từ chối</button>
+                            <button class="btn btn-success btn-comfirm-type" data="@ct.ID" data-type="accept" data-toggle="modal" data-target="#myModal">Chấp thuận</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Bạn chắc chắn muốn thực hiện thao tác này
+                <form hidden>
+                    <input class="ct_id" />
+                    <input class="type" />
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success px-4 btn-confirm" data-dismiss="modal">Có</button>
+                <button type="button" class="btn btn-danger px-4" data-dismiss="modal">Không</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on('click', '.btn-comfirm-type', (e) => {
+        let el = e.target;
+        let postID = $(el).attr('data');
+        let type = $(el).attr('data-type');
+        $('.ct_id').val(postID);
+        $('.type').val(type);
+    })
+
+
+    $(document).on('click', '.btn-confirm', (e) => {
+        let ctid = $('.ct_id').val();
+        let type = $('.type').val();
+        let data = {
+            contactid: ctid,
+            type: type
+        };
+        let token = get_cookie('jwt');
+        $.ajax({
+            type: "POST",
+            url: "/api/usercontact/confirm",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .done(rs => {
+                alert('Confirm thành công!');
+                window.location.reload();
+            })
+            .fail(err => alert('Thất bại. Mời kiểm tra lại'))
+    })
+</script>

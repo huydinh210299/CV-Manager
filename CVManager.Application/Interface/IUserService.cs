@@ -14,5 +14,9 @@ namespace CVManager.Application.Interface
         Task<User> getUserByAcountID(Guid acountID);
 
         User checkUserFromToken();
+        List<UserAcountDetails> listUser(int? page, string school);
+        User getUserInfo();
+
+        Task<int> saveProfile(Guid ID,string name, string school, string phone, string email, string area);
     }
 }

@@ -1,0 +1,12 @@
+﻿@model CVDetailModal
+@{ Layout = "_NoLayout"; }
+
+<div class="preview-zone-wrapper d-flex justify-content-center mb-4" style="width: 100vw;">
+    <div class="preview-zone" style="width: 100%;"></div>
+</div>
+<form hidden>
+    <input class="html-src" value="@Model.Html" />
+    <input class="css-src" value="@Model.Css" />
+</form>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/maincvdetail.js"></script>

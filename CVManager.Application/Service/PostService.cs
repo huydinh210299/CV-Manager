@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace CVManager.Application.Service
 {
@@ -41,7 +43,7 @@ namespace CVManager.Application.Service
                 Require = info.Require,
                 Benefit = info.Benefit,
                 Skill = info.Skill,
-                Submit_Deadline = DateTime.ParseExact(info.Submit_Deadline, "dd/MM/yyyy", null)
+                Submit_Deadline = info.Submit_Deadline
             };
             post.Type = 1;
             _dbContext.Posts.Add(post);
@@ -109,6 +111,41 @@ namespace CVManager.Application.Service
                           Skill = p.Skill
                       }).FirstOrDefault();
             return rs;
+        }
+
+        public async Task<List<Post>> getPostByEntID(Guid acountID)
+        {
+            var ent = await _enterpriseService.getEnterpriseFromAcountID(acountID);
+            return await (from p in _dbContext.Posts
+                          where p.Enterprise.ID == ent.ID
+                          select p).ToListAsync();
+        }
+
+        public Post getPostByID(Guid postID)
+        {
+            return _dbContext.Posts.FirstOrDefault(p => p.ID == postID);
+        }
+
+        public int editPost(PostInfo info)
+        {
+            var post = _dbContext.Posts.FirstOrDefault(p => p.ID == info.PostID);
+            post.Title = info.Title;
+            post.Address = info.Address;
+            post.ExactAddress = info.ExactAddress;
+            post.Position = info.Position;
+            post.Gender = info.Gender;
+            post.Salary = info.Salary;
+            post.Amount = info.Amount;
+            post.Experience = info.Experience;
+            post.Reciever = info.Reciever;
+            post.Phone_Reciever = info.Phone_Reciever;
+            post.Email_Reciever = info.Email_Reciever;
+            post.Description = info.Description;
+            post.Require = info.Require;
+            post.Benefit = info.Benefit;
+            post.Skill = info.Skill;
+            post.Submit_Deadline = info.Submit_Deadline;
+            return _dbContext.SaveChanges();
         }
     }
 }
